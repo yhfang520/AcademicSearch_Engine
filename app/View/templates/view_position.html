@@ -1,0 +1,33 @@
+<table class = "posttable" style = "width:100%" valign="top">
+    <tr> 
+        <td colspan="3"><div class="posttitle"> 
+            <br>
+     <p><b>Posted Job</b></p>
+     <p> <b>Name:</b>  {{ positionn.firstname }} {{ positionn.lastname }} </p>
+     <p> <b>Phone Number:</b>  {{ positionn.phone_number }}  </p>
+     <p> <b>Title:</b>  {{ positionn.title }}  </p>
+     <p> <b>Project Information:</b>  {{ positionn.project_information}}  </p>
+     <p> <b>Start Date:</b>  {{ positionn.start_date }}  </p>
+     <p> <b>End Date:</b>  {{ positionn.end_date }}  </p>
+     <p> <b>Required Time Commitment:</b>  {{ positionn.requried_time_commitment }}  </p>
+     <p> <b>Required GPA:</b>  {{ positionn.required_gpa }}  </p>
+     <p> <b>Required Course:</b>  {{ positionn.required_course}}  </p>
+     <p> <b>Max Position:</b>  {{ positionn.max_position }}  </p>
+
+        </div>
+        </td>
+    </tr>
+<td width = "5%"> 
+<div class = "likecount">
+    {% if current_user.is_apply(positionn) == False%}    
+        <form action="{{ url_for('routes.apply_profile',positions_id = positionn.id)}}" method="post">
+                <input type="submit" value="Apply" class = "button" >
+        </form>
+        &nbsp;
+        {% else %}  
+        <form action="{{ url_for('routes.withdraw',positions_id = positionn.id)}}" method="post">
+                <input type="submit" value="Withdraw" class = "button" >
+        </form>
+    {% endif %}
+</div>
+</td>

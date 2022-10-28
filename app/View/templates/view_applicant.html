@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1> Applicant  </h1>
+            <div class ='postlist'>
+                    {% for application in apply %}
+                        {% include 'applicantinfo.html'%}
+                    {% endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

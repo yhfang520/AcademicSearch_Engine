@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Welcome Faculty!</h1>
+            <td><a href="{{ url_for('routes.create2') }}" class = "button"> Edit Profile Information </a></td>
+            &nbsp;          
+            <td><a href="{{ url_for('routes.position') }}" class = "button"> Create Undergraduate Research Positions</a></td>
+                
+            <div class ='postlist'>
+            
+                    {% for facultyy in faculty %}
+                        <div class ='post-box'>   
+                            {% include 'postfaculty.html' %} 
+                        </div>    
+                    {% endfor %}
+            </div>
+            
+            
+            <div class ='postlist'>
+            
+                    {% for positionn in position %}
+                        <div class ='post-box'>   
+                            {% include 'displaypositions.html' %} 
+                        </div>    
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+   

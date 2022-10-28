@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Welcome Students!</h1>
+            <td><a href="{{ url_for('routes.create') }}" class = "button"> Edit Profile Information </a></td>
+            &nbsp;          
+            <td><a href="{{ url_for('routes.display_profile') }}" class = "button"> Search All Research Position </a></td>
+            &nbsp;          
+            <td><a href="{{ url_for('routes.majors') }}" class = "button"> All Recommended Position </a></td>
+            &nbsp;  
+
+            <div class ='postlist'>
+
+                    {% for studentss in student %}
+                        <div class ='post-box'>   
+                            {% include 'post.html' %} 
+                        </div>    
+                    {% endfor %}
+            </div>
+                {% if apply %}
+                    {% for application in apply %}
+                        {% include 'applied.html'%}
+                    {% endfor%}
+                {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

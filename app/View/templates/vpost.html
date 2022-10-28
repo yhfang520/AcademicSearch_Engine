@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Research Position List</h1>
+            <div class ='postlist'>
+
+                {% for positionn in position %}
+                    <div class ='post-box'>   
+                        {% include 'view_position.html' %} 
+                    </div>    
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+   

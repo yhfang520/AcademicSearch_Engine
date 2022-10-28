@@ -1,0 +1,54 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block scripts %}
+    {{ moment.include_moment() }}
+{% endblock %} 
+
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        <!-- <div class="container"> -->
+            <div class="navbar-header">
+
+                <a class="navbar-brand">Virtual Research Center</a>
+                <!-- <a class="navbar-brand" style="margin-left: -190px;">Virtual Research Center</a> -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                {% if current_user.status == "student" %}
+                <li><a href="{{ url_for('routes.index') }}" class="button">Students Homepage</a></li>
+                {% elif current_user.status == "faculty" %}
+                <li><a href="{{ url_for('routes.index2') }}" class="button"> Faculty Homepage </a></li>
+                {% endif %}
+                {% if current_user.is_anonymous %}
+                <li><a href="{{ url_for('auth.login') }}" class="button"> Login </a></li>
+                {% else %}
+                <li><a href="{{ url_for('auth.logout') }}" class="button"> Logout </a></li>
+                {% endif %}
+                <li><a class="button"><b>Current user is : {{current_user.status}} </b></a></li>
+            </ul>
+            </div>
+        <!-- </div> -->
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <!-- <div class="container"> -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %}
+    <!-- </div> -->
+{% endblock %}

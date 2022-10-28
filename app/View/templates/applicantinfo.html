@@ -1,0 +1,45 @@
+<table class="posttable" style="width:100%" valign="top">
+    <tr>
+        <td colspan="3">
+            <div class="posttitle">
+                <br>
+                <p><b>Information</b></p>
+                <p> <b>Student Name:</b> {{ application.thestudent.students[0].firstname }} {{
+                    application.thestudent.students[0].lastname }} </p>
+                <p> <b>WSU ID:</b> {{ application.thestudent.id }} </p>
+                <p> <b>Email:</b> {{ application.thestudent.email }} </p>
+                <p> <b>Phone Number:</b> {{ application.thestudent.students[0].phone_number}} </p>
+                <p> <b>Culmulative Gpa:</b> {{ application.thestudent.students[0].culmulative_gpa }} </p>
+                <p> <b>Prior Research Exp:</b> {{ application.thestudent.students[0].prior_research_exp }} </p>
+                <p> <b>Major/Research Interest:</b> {{ application.major}} </p>
+                <p> <b>Taking Course:</b> {{ application.taking_courses}} </p>
+                <p> <b>Reason:</b> {{ application.reason}} </p>
+                <p> <b>Expected_graduation:</b> {{ application.expected_graduation}} </p>
+                <p> <b>Status:</b> {{ application.status}} </p>
+
+
+            </div>
+        </td>
+    </tr>
+    &nbsp;
+    <td width = "5%"> 
+        <div class="likecount">
+            <div style = "float: left; width:100px">
+                <form action="{{ url_for('routes.accept_applicant',id = application.id)}}" method="post">
+                    <input type="submit" value="Approved" class="button">
+                </form>
+            </div>
+        </div>
+        <div class="likecount">
+            <div style = "float: left; width:100px">
+                <form action="{{ url_for('routes.interview_applicant',id=application.id)}}" method="post">
+                    <input type="submit" value="Interview" class="button">
+                </form>
+            </div>
+        </div>
+    <div class="likecount">
+            <form action="{{ url_for('routes.delay_applicant',id=application.id)}}" method="post">
+                <input type="submit" value="Not Approved" class="button">
+            </form>
+    </div>
+    </td>

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>All Recommended Positions</h1>
+            <div class ='postlist'>
+                {% if form %}
+                    <form action="" method="post">
+                        {{ form.hidden_tag() }}
+                            {{ form.majors }}
+                            {{ form.check }} {{form.check.label}}
+                            {{ form.submit(class="button") }}
+                    </form>        
+                {% endif %} 
+                {% for position in majorasd %}
+                    <div class ='post-box'>   
+                        {% include 'viewew_position.html' %} 
+                    </div>    
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

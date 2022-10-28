@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Apply</h1>
+
+            {% if form %}
+                <form action = "" method="POST">
+                    {{ form.hidden_tag() }}
+                    
+                        <p>{{ form.major.label }}</p>
+                        <p>{{ form.major(class='forminput')}}</p>
+
+                        {% for error in form.major.errors %}
+                        <span style="color: red;">[{{error}}]</span>
+                        {% endfor %}
+
+                        <p>{{form.taking_courses.label }}</p>
+                        <p>{{form.taking_courses(class='forminput') }}</p>
+
+                        {% for error in form.taking_courses.errors %}
+                        <span style="color: red;">[{{error}}]</span>
+                        {% endfor %}
+
+                        <p>{{form.reason.label }}</p>
+                        <p>{{form.reason(class='forminput') }}</p>
+
+                        {% for error in form.reason.errors %}
+                        <span style="color: red;">[{{error}}]</span>
+                        {% endfor %}
+                        
+                        <p>{{form.expected_graduation.label }}</p>
+                        <p>{{ form.expected_graduation(class = "formselect" )}}</p>
+
+                        {% for error in form.expected_graduation.errors %}
+                        <span style="color: red;">[{{error}}]</span>
+                        {% endfor %}
+                        
+                    
+                        <p>{{ form.submit(class= 'button') }}</p>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

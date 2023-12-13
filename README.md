@@ -3,15 +3,6 @@
 ## VRC (Virtual Research Center)
 ![](https://img.shields.io/badge/python-3.9.7-red.svg) ![](https://img.shields.io/badge/flask-2.0.1-red.svg)  ![](https://img.shields.io/badge/sqlalchemy-2.5.1-yellow.svg) <br>
 --------
-Prepared by: Team 9
-
----
-
-**Course** : Software Engineering Principles 
-
-
-----
-
 
 This website aim to help students search and apply for their interested research position. Faculty may also post position on the via website to select for the applicants. We are creating a tool to allows student and faulty to easily be connected. The software requirement specification requires an online platform that allows the faculty to advertise their research positions and connect them with qualified students.
 Students can upload their contact information, research interest, experience, and completed coursework by the product. Faculty can advertise opportunities for students who complete required classes and have similar research interests based on the research requirement.
